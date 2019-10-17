@@ -1,1 +1,2 @@
 Control de camara
+segmentacion
