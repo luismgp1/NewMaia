@@ -6,20 +6,19 @@ public class onExit {
 
     public void CloseCamera(String path,String pathC){
         files file = new files();
-        file.deleteDirectory(path);
+        file.deleteDirectory(path); ///Inicio y borrado de las fotos existentes
 
-        int controlExit=1;
+        int controlExit;
         do{
 
-            controlExit=file.checkTask();
+            controlExit=file.checkTask(); /// comprobar que la aplicacion este abierta
 
         }while(controlExit==1);
 
         int controlFolder=0;
+        controlFolder=file.CheckDirectory(path,controlFolder); //comprobar si el directorio tiene fotos o esta vacio
 
-        controlFolder=file.CheckDirectory(path,controlFolder);
-
-        if (controlFolder==1){
+        if (controlFolder==1){ //contiene fotos
             System.out.println("con fotos");
             file.deleteDesktopIni(path);
             file.moverDirectory(path,pathC);
@@ -27,7 +26,7 @@ public class onExit {
             System.exit(0);
         }
 
-        if (controlFolder==0){
+        if (controlFolder==0){ //no contiene fotos
             System.out.println("sin fotos");
             System.exit(1);
         }
