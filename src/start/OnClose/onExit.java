@@ -1,11 +1,19 @@
 package start.OnClose;
 
+import start.camaraController;
 import start.files;
 
 public class onExit {
 
-    public void CloseCamera(String path,String pathC){
+
+
+
+    public void CloseCamera(String path,String pathC,String pathP){
+
         files file = new files();
+        camaraController cam =new camaraController();
+
+
         file.deleteDirectory(path); ///Inicio y borrado de las fotos existentes
 
         int controlExit;
@@ -23,11 +31,14 @@ public class onExit {
             file.deleteDesktopIni(path);
             file.moverDirectory(path,pathC);
             file.deleteDirectory(path);
+            cam.reCopiado(path,pathP); ///RECOPIADO
+
             System.exit(0);
         }
 
         if (controlFolder==0){ //no contiene fotos
             System.out.println("sin fotos");
+            cam.reCopiado(path,pathP);  //RECOPIADO
             System.exit(1);
         }
 

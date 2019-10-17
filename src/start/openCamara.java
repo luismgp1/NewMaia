@@ -21,8 +21,11 @@ public class openCamara {
 
     public static void main(String[] args) {
 
-        String path= FileSystemView.getFileSystemView().getDefaultDirectory().getPath(); path=path.replaceAll("Documents","Pictures"); path=path+"\\Camera Roll";
+        String path= FileSystemView.getFileSystemView().getDefaultDirectory().getPath(); path=path.replaceAll("Documents","Pictures");
+        String pathP=path+"\\camara";
+        path=path+"\\Camera Roll";
         String pathC="C:\\CAM\\";
+
 
 /*
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -33,12 +36,17 @@ public class openCamara {
 
 
         camaraController camara = new camaraController();
+        camara.onOpen(path,pathP); ///salvado de fotos
+
+
         camara.camaraOpen();
+
+
 
         try {
             Thread.sleep(2000);
             onExit process = new onExit();
-            process.CloseCamera(path,pathC);
+            process.CloseCamera(path,pathC,pathP);
 
         }catch (InterruptedException e) {
             e.printStackTrace();
