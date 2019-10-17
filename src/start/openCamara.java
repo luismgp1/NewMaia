@@ -1,5 +1,4 @@
 package start;
-//SEGMENTACION
 
 
 import start.OnClose.onExit;
