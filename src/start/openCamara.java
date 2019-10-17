@@ -1,4 +1,5 @@
 package start;
+//SEGMENTACION
 
 
 import start.OnClose.onExit;
@@ -19,7 +20,7 @@ public class openCamara {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) {
 
         String path= FileSystemView.getFileSystemView().getDefaultDirectory().getPath(); path=path.replaceAll("Documents","Pictures"); path=path+"\\Camera Roll";
         String pathC="C:\\CAM\\";
